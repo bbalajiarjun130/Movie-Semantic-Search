@@ -1,0 +1,14 @@
+node_modules
+
+.env
+dist
+.DS_Store
+coverage
+*.log
+*.tgz
+*.zip
+*.tar
+*.tar.gz
+
+*.tgz
+*.zip
