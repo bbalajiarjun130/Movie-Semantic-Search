@@ -21,7 +21,8 @@
     "express-validator": "^7.2.1",
     "mongoose": "^8.13.2",
     "openai": "^4.95.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "string-similarity": "^4.0.4"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",

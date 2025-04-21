@@ -1,5 +1,6 @@
 import Movie from '../models/Movie.js';
 import axios from 'axios';
+import stringSimilarity from 'string-similarity';
 
 export const searchMovies = async (req, res) => {
     const { query } = req.body;
@@ -38,12 +39,38 @@ export const searchMovies = async (req, res) => {
             return dotProduct / (normA * normB);
         }
 
+        const matchProperty = {
+            'exact match': 3,
+            'partial match': 2,
+            'no match': 1
+        }
+
         const results = movies.map(movie => {
             const similarity = cosineSimilarity(queryEmbedding, movie.embedding);
+
+            const title = movie.title || '';
+            const description = movie.description || '';
+
+            const titleSimilarity = stringSimilarity.compareTwoStrings(query, title);
+            const descriptionSimilarity = stringSimilarity.compareTwoStrings(query, description);
+
+            let matchType = 'no match';
+            if (titleSimilarity > 0.9) {
+                matchType = 'exact match';
+            } else if (titleSimilarity > 0.6 || descriptionSimilarity > 0.6) {
+                matchType = 'partial match';
+            }
+
             const { embedding, ...cleaned } = movie.toObject(); // remove embedding
-            return { ...cleaned, similarity };
+            return { ...cleaned, similarity, matchType };
           })
-          .sort((a, b) => b.similarity - a.similarity)
+          .sort((a, b) => {
+            const propertyDifference = matchProperty[b.matchType] - matchProperty[a.matchType];
+            if (propertyDifference !== 0) {
+                return propertyDifference;
+            }
+            return b.similarity - a.similarity; // Sort by similarity if match types are the same
+          })
           .slice(0, 5);
         
         // Log the results
