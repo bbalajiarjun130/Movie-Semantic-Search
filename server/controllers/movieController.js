@@ -81,3 +81,24 @@ export const searchMovies = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 }
+
+export const advancedSearch = async (req, res) => {
+    const { title, genre, releasedYear, Director, rating } = req.body;
+
+    try {
+        const actualQuery = {}  
+        if (title) actualQuery.title = { $regex: title, $options: 'i' };
+        if (genre) actualQuery.genre = { $regex: genre, $options: 'i' };
+        if (releasedYear) actualQuery.releasedYear = releasedYear;
+        if (Director) actualQuery.Director = { $regex: Director, $options: 'i' };
+        if (rating) actualQuery.rating = rating;
+
+        const movies = await Movie.find(actualQuery).select('-embedding');
+
+
+        res.json(movies);
+    } catch (error) {
+        console.error('Error searching movies:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}

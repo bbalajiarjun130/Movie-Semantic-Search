@@ -1,6 +1,7 @@
 import express from 'express';
 import connectDB from '../server/config/config.js';
 import movieRoutes from './routes/movieRoutes.js';
+import cors from 'cors';
 
 const app = express();
 
@@ -10,16 +11,18 @@ app.use(express.json());
 // Connect to the database
 connectDB();
 
-// Use the movie routes
-app.use('/api/movies', movieRoutes);
+app.use(cors());
 
 // Basic route
 app.get('/', (req, res) => {
     res.send('Welcome to the Semantic Search API!');
 });
 
+// Use the movie routes
+app.use('/api/movies', movieRoutes);
+
 // Start the server
-const PORT = 6000;
+const PORT = 4000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

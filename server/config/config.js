@@ -3,13 +3,13 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // MongoDB connection URI
-const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/semantic-search';
+const mongoURI = process.env.MONGO_URI;
 
 
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect(mongoURI);
-        console.log(`MongoDB Connected: ${conn.connection.host}`);
+        await mongoose.connect(mongoURI);
+        console.log(`MongoDB Connected`);
     } catch (error) {
         console.error(`Error: ${error.message}`);
         process.exit(1);
