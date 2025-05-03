@@ -1,6 +1,57 @@
 import Movie from '../models/Movie.js';
 import axios from 'axios';
 import stringSimilarity from 'string-similarity';
+import { OpenAI } from 'openai';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+
+export const addMovies = async (req, res) => {
+    try {
+        const {
+            title,
+            genre,
+            releasedYear,
+            Director,
+            Cast,
+            rating,
+            description
+        } = req.body;
+
+        if (!title || !genre || !releasedYear || !description) {
+            return res.status(400).json({ message: 'Required fields are missing.' });
+        }
+      
+        // Get embedding from OpenAI
+        const embeddingResponse = await openai.embeddings.create({
+            model: 'text-embedding-ada-002',
+            input: description,
+        });
+      
+        const embedding = embeddingResponse.data[0].embedding;
+
+        const newMovie = new Movie({
+            title,
+            genre,
+            releasedYear,
+            Director,
+            Cast,
+            rating,
+            description,
+            embedding
+        });
+
+        const savedMovie = await newMovie.save();
+        res.status(201).json(savedMovie);
+    } catch (error) {
+        console.error('Error creating movie:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
 
 export const searchMovies = async (req, res) => {
     const { query } = req.body;

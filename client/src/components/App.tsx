@@ -2,6 +2,7 @@ import React from 'react';
 import {useState} from 'react';
 import axios from 'axios';
 import { Movie } from './types';
+import NavTabs from './NavTabs';
 
 
 export default function MovieSearch() {
@@ -25,6 +26,7 @@ export default function MovieSearch() {
 
     return (
         <div className="max-w-xl mx-auto p-4">
+            <NavTabs />
             <h1 className="text-2xl font-blob "> Movie Semantic Search</h1>
             <div className='flex space-x-2 mt-4"'>
                 <input

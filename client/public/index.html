@@ -7,5 +7,13 @@
 </head>
 <body>
     <div id="root"></div>
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+	createChat({
+		webhookUrl: 'https://bbalajiarjun.app.n8n.cloud/webhook/ed177c4f-2bce-48d9-bca8-c240d80d6e11/chat'
+	});
+</script>
 </body>
 </html>
