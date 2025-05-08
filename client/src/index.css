@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 10%;
+    --foreground: 220 10% 98%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 220 10% 98%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 220 10% 98%;
+
+    --primary: 260 73% 75%;
+    --primary-foreground: 220 10% 10%;
+
+    --secondary: 220 10% 18%;
+    --secondary-foreground: 220 10% 98%;
+
+    --muted: 220 10% 18%;
+    --muted-foreground: 220 10% 70%;
+
+    --accent: 271 91% 65%;
+    --accent-foreground: 220 10% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 10% 20%;
+    --input: 220 10% 20%;
+    --ring: 260 73% 75%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.movie-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.5);
+}
+
+.search-input {
+  background: linear-gradient(to right, rgba(124, 58, 237, 0.1), transparent);
+}
