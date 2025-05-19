@@ -1,18 +1,19 @@
+import React from "react";
 import { useState } from "react";
-import { useToast } from "@/components/ui/use-toast";
-import PageLayout from "../layout/PageLayout";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { genres } from "@/data/mockMovies";
+import { useToast } from "../components/ui/use-toast";
+import PageLayout from "../components/layout/PageLayout";
+import { Input } from "../components/ui/input";
+import { Textarea } from "../components/ui/textarea";
+import { Label } from "../components/ui/label";
+import { Button } from "../components/ui/button";
+import { genres } from "../data/mockMovies";
 import { 
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select";
+} from "../components/ui/select";
 import { 
   Form,
   FormControl,
@@ -21,7 +22,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from "@/components/ui/form";
+} from "../components/ui/form";
 import { FilmIcon, Info } from "lucide-react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";

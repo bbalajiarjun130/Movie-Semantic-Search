@@ -1,5 +1,6 @@
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import React from "react";
+import { Card, CardContent, CardFooter } from "../ui/card";
+import { Badge } from "../ui/badge";
 
 interface MovieCardProps {
   id: string;

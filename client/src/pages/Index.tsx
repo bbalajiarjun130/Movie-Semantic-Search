@@ -1,12 +1,13 @@
+import React from "react";
 import { useState } from "react";
-import PageLayout from "../layout/PageLayout";
-import SearchBar from "../movies/SearchBar";
-import MovieCard from "../movies/MovieCard";
-import { Button } from "@/components/ui/button";
-import { mockMovies } from "@/data/mockMovies";
-import { Movie } from "@/types/movie";
+import PageLayout from "../components/layout/PageLayout";
+import SearchBar from "../components/movies/SearchBar";
+import MovieCard from "../components/movies/MovieCard";
+import { Button } from "../components/ui/button";
+import { mockMovies } from "../data/mockMovies";
+import { Movie } from "../components/types";
 import { useNavigate } from "react-router-dom";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "../components/ui/use-toast";
 
 const Index = () => {
   const [featuredMovies, setFeaturedMovies] = useState<Movie[]>(mockMovies);

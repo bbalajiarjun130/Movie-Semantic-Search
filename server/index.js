@@ -1,5 +1,5 @@
 import express from 'express';
-import connectDB from '../server/config/config.js';
+import connectDB from './config/config.js';
 import movieRoutes from './routes/movieRoutes.js';
 import cors from 'cors';
 

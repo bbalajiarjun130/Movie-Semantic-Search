@@ -1,5 +1,6 @@
-import PageLayout from "../layout/PageLayout";
-import { Card, CardContent } from "@/components/ui/card";
+import React from "react";
+import PageLayout from "../components/layout/PageLayout";
+import { Card, CardContent } from "../components/ui/card";
 import { Film, Info, Search, Plus, Mail } from "lucide-react";
 
 const About = () => {

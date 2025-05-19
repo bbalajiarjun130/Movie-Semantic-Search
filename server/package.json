@@ -2,9 +2,9 @@
     "name": "semantic-search-server",
     "version": "1.0.0",
     "description": "A server for semantic search functionality",
-    "main": "app.js",
+    "main": "index.js",
     "scripts": {
-        "start": "nodemon app.js",
+        "start": "nodemon index.js",
         "embed:movies": "node embeddings/generateEmbeddings.cjs"
     },
     "keywords": [

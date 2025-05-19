@@ -1,10 +1,11 @@
+import React from "react";
 import { useState } from "react";
-import { useToast } from "@/components/ui/use-toast";
-import PageLayout from "../layout/PageLayout";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { useToast } from "../components/ui/use-toast";
+import PageLayout from "../components/layout/PageLayout";
+import { Input } from "../components/ui/input";
+import { Textarea } from "../components/ui/textarea";
+import { Button } from "../components/ui/button";
+import { Card, CardContent } from "../components/ui/card";
 import { Mail } from "lucide-react";
 import {
   Form,
@@ -14,7 +15,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from "@/components/ui/form";
+} from "../components/ui/form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";

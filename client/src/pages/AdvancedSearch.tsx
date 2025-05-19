@@ -1,15 +1,16 @@
+import React from "react";
 import { useState, FormEvent } from "react";
-import { useToast } from "@/components/ui/use-toast";
-import PageLayout from "../layout/PageLayout";
-import MovieCard from "../movies/MovieCard";
-import { mockMovies, genres } from "@/data/mockMovies";
-import { Movie } from "@/types/movie";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
-import { Slider } from "@/components/ui/slider";
-import { CheckboxGroup } from "@/components/ui/checkbox";
-import { Button } from "@/components/ui/button";
+import { useToast } from "../components/ui/use-toast";
+import PageLayout from "../components/layout/PageLayout";
+import MovieCard from "../components/movies/MovieCard";
+import { mockMovies, genres } from "../data/mockMovies";
+import { Movie } from "../components/types";
+import { Input } from "../components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
+import { Label } from "../components/ui/label";
+import { Slider } from "../components/ui/slider";
+import { Checkbox } from "../components/ui/checkbox";
+import { Button } from "../components/ui/button";
 import { Filter } from "lucide-react";
 
 const yearRange = { min: 1900, max: new Date().getFullYear() };
