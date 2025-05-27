@@ -1,12 +1,14 @@
 {
-    "name": "movie-search-app",
-    "version": "1.0.0",
+    "name": "vite_react_shadcn_ts",
     "private": true,
+    "version": "0.0.0",
+    "type": "module",
     "scripts": {
-        "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
-        "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "dev": "vite",
+        "build": "vite build",
+        "build:dev": "vite build --mode development",
+        "lint": "eslint .",
+        "preview": "vite preview"
     },
     "dependencies": {
         "@hookform/resolvers": "^3.9.0",
@@ -45,6 +47,7 @@
         "date-fns": "^3.6.0",
         "embla-carousel-react": "^8.6.0",
         "input-otp": "^1.4.2",
+        "lovable-tagger": "^1.1.8",
         "lucide-react": "^0.462.0",
         "next-themes": "^0.3.0",
         "react": "^18.3.1",
@@ -61,15 +64,18 @@
         "tailwind-variants": "^1.0.0",
         "tailwindcss-animate": "^1.0.7",
         "vaul": "^0.9.3",
+        "vite": "^6.3.5",
         "zod": "^3.23.8"
     },
     "devDependencies": {
+        "@tailwindcss/postcss": "^4.1.7",
         "@types/node": "^22.15.17",
         "@types/react": "^17.0.85",
         "@types/react-dom": "^17.0.26",
+        "@vitejs/plugin-react-swc": "^3.9.0",
         "autoprefixer": "^10.4.21",
         "postcss": "^8.5.3",
-        "tailwindcss": "^4.1.5",
+        "tailwindcss": "^4.1.7",
         "typescript": "^4.9.5"
     },
     "eslintConfig": {
